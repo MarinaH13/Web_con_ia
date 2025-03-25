@@ -3,58 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astronomía</title>
+    <title>Astronomía: Explorando el Universo</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             background-color: #0b132b;
             color: white;
-            text-align: center;
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
         header {
-            background-color: #1c2541;
-            padding: 20px;
+            background: #1c2541;
+            padding: 20px 0;
+            text-align: center;
             font-size: 24px;
+            font-weight: bold;
         }
-        section {
-            padding: 20px;
-        }
-        .contenedor {
-            max-width: 800px;
+        .container {
+            max-width: 1000px;
             margin: auto;
-            text-align: left;
-        }
-        footer {
-            background-color: #1c2541;
-            padding: 10px;
-            margin-top: 20px;
+            padding: 20px;
+            text-align: justify;
         }
         img {
             width: 100%;
-            max-width: 600px;
             border-radius: 10px;
-            margin-top: 10px;
+            margin: 20px 0;
+        }
+        h2 {
+            color: #5bc0be;
+            border-bottom: 2px solid #5bc0be;
+            padding-bottom: 5px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li::before {
+            content: "\2022";
+            color: #5bc0be;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
         }
         button {
-            background-color: #3a506b;
+            background: #3a506b;
             color: white;
             padding: 10px 20px;
             border: none;
             cursor: pointer;
             margin-top: 10px;
             border-radius: 5px;
+            font-size: 16px;
         }
         button:hover {
-            background-color: #5bc0be;
-        }
-        #quiz {
-            margin-top: 20px;
-        }
-        #respuesta {
-            font-weight: bold;
-            margin-top: 10px;
+            background: #5bc0be;
         }
         a {
             color: #5bc0be;
@@ -63,6 +68,12 @@
         }
         a:hover {
             text-decoration: underline;
+        }
+        footer {
+            background: #1c2541;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
         }
     </style>
     <script>
@@ -77,13 +88,11 @@
                 "Existen más estrellas en el universo que granos de arena en todas las playas de la Tierra.",
                 "Saturno tiene más de 80 lunas, siendo Titán la más grande y con una atmósfera densa." 
             ];
-            const datoAleatorio = datos[Math.floor(Math.random() * datos.length)];
-            document.getElementById("dato").innerText = datoAleatorio;
+            document.getElementById("dato").innerText = datos[Math.floor(Math.random() * datos.length)];
         }
         function verificarRespuesta() {
             const respuesta = document.getElementById("inputQuiz").value.toLowerCase();
-            const correcta = "heliocentrico";
-            if (respuesta === correcta) {
+            if (respuesta === "heliocentrico") {
                 document.getElementById("respuesta").innerText = "¡Correcto! Copérnico propuso el modelo heliocéntrico.";
             } else {
                 document.getElementById("respuesta").innerText = "Incorrecto. Intenta de nuevo.";
@@ -95,50 +104,144 @@
     <header>
         <h1>Astronomía: Explorando el Universo</h1>
     </header>
-    <section>
-        <div class="contenedor">
-            <h2>¿Qué es la Astronomía?</h2>
-            <p>La astronomía es la ciencia que estudia los cuerpos celestes, el universo y sus fenómenos.</p>
-            <img src="https://concepto.de/wp-content/uploads/2014/08/universo-e1551279319307-800x400.jpg" alt="Imagen del universo">
-            <h2>Objetos Celestes</h2>
-            <ul>
-                <li>Estrellas</li>
-                <li>Planetas</li>
-                <li>Galaxias</li>
-                <li>Nebulosas</li>
-                <li>Agujeros Negros</li>
-            </ul>
-            <h2>Ramas de la Astronomía</h2>
-            <p>Entre las ramas más importantes se encuentran la astronomía observacional, la astrofísica, la cosmología y la astroquímica.</p>
-            <img src="https://astroaficion.com/wp-content/uploads/2024/03/prismaticos-astronomicos.jpg" alt="Telescopio bajo las estrellas">
-            <h2>Historia de la Astronomía</h2>
-            <p>Desde la antigüedad, las civilizaciones han observado el cielo para entender el mundo. Babilonios, egipcios y griegos hicieron importantes contribuciones al estudio astronómico.</p>
-            <h2>Grandes Astrónomos</h2>
-            <ul>
-                <li><strong>Copérnico:</strong> Propuso el modelo heliocéntrico del sistema solar.</li>
-                <li><strong>Galileo Galilei:</strong> Mejoró el telescopio y realizó importantes observaciones.</li>
-                <li><strong>Kepler:</strong> Formuló las leyes del movimiento planetario.</li>
-                <li><strong>Newton:</strong> Desarrolló la ley de la gravitación universal.</li>
-                <li><strong>Einstein:</strong> Introdujo la teoría de la relatividad.</li>
-            </ul>
-            <h2>Dato Curioso</h2>
-            <p id="dato">Presiona el botón para descubrir un dato curioso sobre el universo.</p>
-            <button onclick="mostrarDato()">Mostrar Dato</button>
-            
-            <h2>Prueba tu conocimiento</h2>
-            <p>¿Cómo se llama el modelo que propone que el Sol está en el centro del sistema solar?</p>
-            <input type="text" id="inputQuiz" placeholder="Escribe tu respuesta aquí">
-            <button onclick="verificarRespuesta()">Verificar</button>
-            <p id="respuesta"></p>
-            
-            <h2>Más información</h2>
-            <p>Para explorar más sobre astronomía, visita la página oficial de la NASA: 
-                <a href="https://www.nasa.gov" target="_blank">NASA</a>
-            </p>
+    <div class="container">
+        <h2>¿Qué es la Astronomía?</h2>
+        <p>La astronomía es la ciencia que estudia los cuerpos celestes (estrellas, planetas, galaxias, nebulosas, etc.), así como los fenómenos que ocurren en el universo. Se encarga de analizar su origen, evolución, composición y comportamiento, utilizando herramientas como telescopios, satélites y sondas espaciales.</p>
+        <img src="https://concepto.de/wp-content/uploads/2014/08/universo-e1551279319307-800x400.jpg" alt="Imagen del universo">
+        <h2>Objetos Celestes</h2>
+        <ul>
+            <li>Estrellas</li>
+            <li>Planetas</li>
+            <li>Galaxias</li>
+            <li>Nebulosas</li>
+            <li>Agujeros Negros</li>
+        </ul>
+        <h2>Ramas de la Astronomía</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <h3>🔭 Astronomía Observacional</h3>
+                <p>Se basa en la observación de cuerpos celestes mediante telescopios.</p>
+            </div>
+            <div class="flip-card-back">
+                <img src="https://www.telemadrid.es/2022/11/05/noticias/madrid/_2502959689_35889351_1300x731.jpg" alt="Astronomía Observacional">
+            </div>
         </div>
-    </section>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <h3>⚛️ Astrofísica</h3>
+                <p>Analiza los procesos físicos y químicos de los astros.</p>
+            </div>
+            <div class="flip-card-back">
+                <img src="https://static.nationalgeographic.es/files/styles/image_3200/public/f0187830-black_holes_merging_illustration.webp?w=546&h=308" alt="Astrofísica">
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <h3>🌌 Cosmología</h3>
+                <p>Estudia el origen y evolución del universo.</p>
+            </div>
+            <div class="flip-card-back">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Evolucion_Universo_CMB_Timeline300_no_WMAP.jpg/1200px-Evolucion_Universo_CMB_Timeline300_no_WMAP.jpg" alt="Cosmología">
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .flip-card {
+        background-color: transparent;
+        width: 300px;
+        height: 200px;
+        perspective: 1000px;
+    }
+    
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+    }
+    
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+    
+    .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        padding: 20px;
+    }
+    
+    .flip-card-front {
+        background: #1c2541;
+        color: white;
+    }
+
+    .flip-card-front h3 {
+        margin: 0;
+        font-size: 20px;
+    }
+
+    .flip-card-front p {
+        margin-top: 10px;
+        font-size: 14px;
+        opacity: 0.8;
+    }
+    
+    .flip-card-back {
+        background: #5bc0be;
+        transform: rotateY(180deg);
+    }
+    
+    .flip-card-back img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+</style>
+
+        <h2>Historia de la Astronomía</h2>
+        <p>Desde la antigüedad, las civilizaciones han observado el cielo para entender el mundo. Babilonios, egipcios y griegos hicieron importantes contribuciones al estudio astronómico.</p>
+        <h2>Grandes Astrónomos</h2>
+        <ul>
+            <li><strong>Copérnico:</strong> Propuso el modelo heliocéntrico del sistema solar.</li>
+            <li><strong>Galileo Galilei:</strong> Mejoró el telescopio y realizó importantes observaciones.</li>
+            <li><strong>Kepler:</strong> Formuló las leyes del movimiento planetario.</li>
+            <li><strong>Newton:</strong> Desarrolló la ley de la gravitación universal.</li>
+            <li><strong>Einstein:</strong> Introdujo la teoría de la relatividad.</li>
+        </ul>
+        <h2>Dato Curioso</h2>
+        <p id="dato">Presiona el botón para descubrir un dato curioso sobre el universo.</p>
+        <button onclick="mostrarDato()">Mostrar Dato</button>
+        <h2>Prueba tu conocimiento</h2>
+        <p>¿Cómo se llama el modelo que propone que el Sol está en el centro del sistema solar?</p>
+        <input type="text" id="inputQuiz" placeholder="Escribe tu respuesta aquí">
+        <button onclick="verificarRespuesta()">Verificar</button>
+        <p id="respuesta"></p>
+        <h2>Más información</h2>
+        <p>Para explorar más sobre astronomía, visita la página oficial de la NASA: 
+            <a href="https://www.nasa.gov" target="_blank">NASA</a>
+        </p>
+    </div>
     <footer>
         <p>&copy; 2025 Astronomía Web - Todos los derechos reservados</p>
     </footer>
 </body>
 </html>
+
