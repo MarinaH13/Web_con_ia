@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astronomía</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0b132b;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #1c2541;
+            padding: 20px;
+            font-size: 24px;
+        }
+        section {
+            padding: 20px;
+        }
+        .contenedor {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+        footer {
+            background-color: #1c2541;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        button {
+            background-color: #3a506b;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #5bc0be;
+        }
+        #quiz {
+            margin-top: 20px;
+        }
+        #respuesta {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        a {
+            color: #5bc0be;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function mostrarDato() {
+            const datos = [
+                "El universo tiene aproximadamente 13.8 mil millones de años.",
+                "La luz del Sol tarda unos 8 minutos en llegar a la Tierra.",
+                "La Vía Láctea contiene entre 100 y 400 mil millones de estrellas.",
+                "Un día en Venus es más largo que un año en Venus.",
+                "Los agujeros negros pueden tener millones de veces la masa del Sol.",
+                "Marte tiene la montaña más alta del Sistema Solar: el Monte Olimpo, con 22 km de altura.",
+                "Existen más estrellas en el universo que granos de arena en todas las playas de la Tierra.",
+                "Saturno tiene más de 80 lunas, siendo Titán la más grande y con una atmósfera densa." 
+            ];
+            const datoAleatorio = datos[Math.floor(Math.random() * datos.length)];
+            document.getElementById("dato").innerText = datoAleatorio;
+        }
+        function verificarRespuesta() {
+            const respuesta = document.getElementById("inputQuiz").value.toLowerCase();
+            const correcta = "heliocentrico";
+            if (respuesta === correcta) {
+                document.getElementById("respuesta").innerText = "¡Correcto! Copérnico propuso el modelo heliocéntrico.";
+            } else {
+                document.getElementById("respuesta").innerText = "Incorrecto. Intenta de nuevo.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Astronomía: Explorando el Universo</h1>
+    </header>
+    <section>
+        <div class="contenedor">
+            <h2>¿Qué es la Astronomía?</h2>
+            <p>La astronomía es la ciencia que estudia los cuerpos celestes, el universo y sus fenómenos.</p>
+            <img src="https://concepto.de/wp-content/uploads/2014/08/universo-e1551279319307-800x400.jpg" alt="Imagen del universo">
+            <h2>Objetos Celestes</h2>
+            <ul>
+                <li>Estrellas</li>
+                <li>Planetas</li>
+                <li>Galaxias</li>
+                <li>Nebulosas</li>
+                <li>Agujeros Negros</li>
+            </ul>
+            <h2>Ramas de la Astronomía</h2>
+            <p>Entre las ramas más importantes se encuentran la astronomía observacional, la astrofísica, la cosmología y la astroquímica.</p>
+            <img src="https://astroaficion.com/wp-content/uploads/2024/03/prismaticos-astronomicos.jpg" alt="Telescopio bajo las estrellas">
+            <h2>Historia de la Astronomía</h2>
+            <p>Desde la antigüedad, las civilizaciones han observado el cielo para entender el mundo. Babilonios, egipcios y griegos hicieron importantes contribuciones al estudio astronómico.</p>
+            <h2>Grandes Astrónomos</h2>
+            <ul>
+                <li><strong>Copérnico:</strong> Propuso el modelo heliocéntrico del sistema solar.</li>
+                <li><strong>Galileo Galilei:</strong> Mejoró el telescopio y realizó importantes observaciones.</li>
+                <li><strong>Kepler:</strong> Formuló las leyes del movimiento planetario.</li>
+                <li><strong>Newton:</strong> Desarrolló la ley de la gravitación universal.</li>
+                <li><strong>Einstein:</strong> Introdujo la teoría de la relatividad.</li>
+            </ul>
+            <h2>Dato Curioso</h2>
+            <p id="dato">Presiona el botón para descubrir un dato curioso sobre el universo.</p>
+            <button onclick="mostrarDato()">Mostrar Dato</button>
+            
+            <h2>Prueba tu conocimiento</h2>
+            <p>¿Cómo se llama el modelo que propone que el Sol está en el centro del sistema solar?</p>
+            <input type="text" id="inputQuiz" placeholder="Escribe tu respuesta aquí">
+            <button onclick="verificarRespuesta()">Verificar</button>
+            <p id="respuesta"></p>
+            
+            <h2>Más información</h2>
+            <p>Para explorar más sobre astronomía, visita la página oficial de la NASA: 
+                <a href="https://www.nasa.gov" target="_blank">NASA</a>
+            </p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 Astronomía Web - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>
